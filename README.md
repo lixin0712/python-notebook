@@ -1,2 +1,2 @@
 # python-notebook
-some ideas about python 
+some test about python 
