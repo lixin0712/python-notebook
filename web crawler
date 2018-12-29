@@ -1,0 +1,9 @@
+#获取影视看看网页上的所有影片名称
+import urllib
+import re
+from urllib import request
+response = request.urlopen(r'http://yskk.la/') # <http.client.HTTPResponse object at 0x00000000048BC908> HTTPResponse类型
+page = response.read()
+page = page.decode('utf-8')
+pattern=re.compile(r'title="(\w+)"')
+p=pattern.findall(page)
