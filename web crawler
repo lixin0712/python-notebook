@@ -5,7 +5,7 @@ from urllib import request
 response = request.urlopen(r'http://yskk.la/') # <http.client.HTTPResponse object at 0x00000000048BC908> HTTPResponse类型
 page = response.read()
 page = page.decode('utf-8')
-pattern=re.compile(r'title="(\w+)"')#包含符号的电影名称无法匹配，例如毒液：致命守护者
+pattern=re.compile(r'title="(.*?)"')#包含符号的电影名称无法匹配，例如毒液：致命守护者
 p=pattern.findall(page)
 
 
@@ -15,7 +15,7 @@ import requests
 from bs4 import BeautifulSoup
 html=requests.get('http://yskk.la/').text#获取影视看看网页的html
 sp=BeautifulSoup(html,'html.parser')#用beautifulsoup解析，使用内置解析器html.parser.或用解析器'lxml'，需安装c语言库 
-ss=sp.find_all('a',taeget="_blank")
+ss=sp.find_all('a',target="_blank")
 data=[]
 for i in ss:
     movie_name=str(i.contents)
