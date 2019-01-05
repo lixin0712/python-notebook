@@ -22,3 +22,18 @@ for i in ss:
     if movie_name[1]!='<':#去掉所有图片的名称
         data=data+[movie_name]
         
+        
+# 绕过登陆，用手动拿的header读取登陆之后的网页内容    
+import urllib
+headers = { 
+    "Host": "60tty.me",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+    "Accept-Encoding": "gzip, deflate",
+    "Referer": "http://60tty.me/forum.php?gid=37",
+    "Cookie":"security_session_verify=94a16b03210ee9fe6a8a5971b15499de; RvA7_2132_saltkey=ZYeYq8Vf; RvA7_2132_lastvisit=1546671200; RvA7_2132_sid=PJVC94; RvA7_2132_lastact=1546686367%09misc.php%09patch; com=0; RvA7_2132_st_p=0%7C1546674800%7C092f65833c76cdc3f756f7e25dce72fb; RvA7_2132_visitedfid=38D60D82; RvA7_2132_viewid=tid_263653; UM_distinctid=1681d0081432aa-06c71b5735f8cd-4c312b7b-2a3000-1681d008145150; CNZZDATA1274325519=1879659244-1546673116-%7C1546684282; RvA7_2132_ulastactivity=48f0PpA5FAZ1TMGVUsoi%2BrzxMyc2uH9jnmh3YMlB%2BsN9rNAtSOE9; RvA7_2132_auth=b2c0FvArV%2BPmjCRwqHWxr5I2pCG7tgLoXWXKIAX44yQ3G2KhO8mbnSw6xMR4OiWySXAotzlsQT1bSC%2BzARCDDY8TwA; RvA7_2132_lastcheckfeed=65322%7C1546674812; RvA7_2132_lip=222.79.60.169%2C1546685849; RvA7_2132_nofavfid=1; RvA7_2132_st_t=65322%7C1546686367%7C2defa51206abf87a161e53a7e7d58d56; RvA7_2132_forum_lastvisit=D_60_1546684309D_38_1546686367",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests":"1"
+}
+html = requests.get('http://baidu.com',headers=headers).text
