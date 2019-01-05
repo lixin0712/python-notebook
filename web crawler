@@ -23,7 +23,7 @@ for i in ss:
         data=data+[movie_name]
         
         
-# 绕过登陆，用手动拿的header读取登陆之后的网页内容    
+# 绕过登陆，用手动拿的header读取登陆之后的网页内容，但是cookie每次需要重新获取  
 import urllib
 headers = { 
     "Host": "60tty.me",
